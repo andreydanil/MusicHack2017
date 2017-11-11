@@ -134,7 +134,6 @@ function sendFileToCloudVision (content) {
 function displayJSON (data) {
   var contents = JSON.stringify(data, null, 4);
   $('#results').text(contents);
-  $('#resultsColor').text(contents);
   var evt = new Event('results-displayed');
   response = data;
   evt.results = contents;
@@ -143,10 +142,10 @@ function displayJSON (data) {
 
 function displayColorJSON (data) {
   var contents = JSON.stringify(data, null, 4);
-  $('#results').text(contents);
   $('#resultsColor').text(contents);
   var evt = new Event('results-displayed');
   colors = data;
   evt.results = contents;
   document.dispatchEvent(evt);
+  document.getElementById("spinner").style.display = "none";
 }
