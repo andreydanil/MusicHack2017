@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<meta name="description" content="">
+
+	<meta name="author" content="">
+
+	<link rel="icon" href="images/favicon.ico">
+
+	<title>Medialoot Bootstrap 4 Dashboard Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid" id="wrapper">
+		<div class="row">
+			<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2 bg-faded sidebar-style-1" >
+        <div class="text-center">
+  				<h1 class="site-title"><a href="index.html"><img src="images/hfmx.png" class="user-avatar"/></a></h1>
+        </div>
+				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
+
+				<ul class="nav nav-pills flex-column sidebar-nav">
+					<li class="nav-item"><a class="nav-link active" href="index.html"><em class="fa fa-dashboard"></em> Inicio <span class="sr-only">(current)</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="widgets.html"><em class="fa fa-calendar-o"></em> Calendario</a></li>
+					<li class="nav-item"><a class="nav-link" href="charts.html"><em class="fa fa-bar-chart"></em> Indicadores</a></li>
+					<li class="nav-item"><a class="nav-link" href="elements.html"><em class="fa fa-hand-o-up"></em> Monitoreo</a></li>
+					<li class="nav-item"><a class="nav-link" href="cards.html"><em class="fa fa-clone"></em> Boletin</a></li>
+				</ul>
+
+				<a href="#" class="logout-button"><em class="fa fa-power-off"></em> Signout</a></nav>
+
+			<main class="col-xs-12 col-sm-8 offset-sm-4 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2 pt-3 pl-4">
+
+<div>
+	<form role="form" ng-submit="submit()">
+		<div class="row">
+				<div class="col-lg-3">
+					<select class="form-control " >
+						<option value="x">X</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<input type="password" class="form-control" id="" placeholder="filtro">
+				</div>
+				<div class="col-lg-1">
+					<button type="button" class="btn btn-black btn-outline btn-lg btn-rounded"> + </button>
+				</div>
+		</div>
+	</form>
+	<div class="row" style="margin-top:20px">
+		<div class="col-md-2 casi-flex">
+			<div class="col-md-1" >
+				<div class="yellow"></div>
+			</div>
+			<div class="col-md-1">
+	 			<p style="margin-left:20px ; float: left">Activo</p>
+			</div>
+		</div>
+		<div class="col-md-2 casi-flex">
+			<div class="col-md-1">
+				<div class="grey"></div>
+			</div>
+			<div class="col-md-1">
+	 			<p style="margin-left:20px ; float: left">Pendiente</p>
+			</div>
+		</div>
+		<div class="col-md-2 casi-flex">
+			<div class="col-md-1">
+				<div class="green"></div>
+			</div>
+			<div class="col-md-1">
+	 			<p style="margin-left:20px ; float: left">Finalizado</p>
+			</div>
+		</div>
+	</div>
+	<!--a ui-sref="reports" class="pull-right btn btn-primary btn-outline btn-rounded">Reports</a>
+	<h2>Overview <small>Why is Ani Theme so awesome?</small></h2-->
+	<div class="jumbotron" style="min-height:500px">
+		<div class="container" style="display:flex">
+			<div class="col-lg-1 actividad casi-flex" style="background-color: hsla(60, 100%, 50%, 0.55);">
+				<p class="small"> Realizar visita</p>
+				<a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-ellipsis-v m-t-8"  aria-hidden="true"></i></a>
+			</div>
+			<p><i class="fa fa-long-arrow-right m-t-15" aria-hidden="true"></i></p>
+			<div class="col-lg-1 actividad casi-flex" style="background-color: hsla(121, 73%, 41%, 0.68);">
+				<p class="small"> Realizar visita</p>
+				<a href=""><i class="fa fa-ellipsis-v m-t-8" aria-hidden="true"></i></a>
+			</div>
+			<p><i class="fa fa-long-arrow-right m-t-15" aria-hidden="true"></i></p>
+			<div class="col-lg-1 actividad casi-flex" style="background-color: rgba(119, 119, 119, 0.47);">
+				<p class="small"> Realizar visita</p>
+				<a href="" ><i class="fa fa-ellipsis-v m-t-8" aria-hidden="true"></i></a>
+			</div>
+		</div>
+		</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width: 70em !important; margin-left:-20em">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <script src="js/chart.min.js"></script>
+    <script src="js/chart-data.js"></script>
+    <script src="js/easypiechart.js"></script>
+    <script src="js/easypiechart-data.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+	    window.onload = function () {
+	var chart1 = document.getElementById("line-chart").getContext("2d");
+	window.myLine = new Chart(chart1).Line(lineChartData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.2)",
+	scaleGridLineColor: "rgba(0,0,0,.05)",
+	scaleFontColor: "#c5c7cc"
+	});
+};
+	</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script>
+    $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+  })
+    </script>
+	  </body>
+</html>

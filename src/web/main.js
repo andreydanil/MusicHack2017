@@ -24,7 +24,7 @@ function readURL(input) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#blah')
+                $('#uploadImg')
                     .attr('src', e.target.result)
                     .width(150)
                     .height(200);
@@ -36,6 +36,11 @@ function readURL(input) {
 
 function imageToSound() {
   $('#myModal').modal('toggle');
+  document.getElementById("title").innerHTML = "Fetching Sound";
+
+  
+
+  //document.getElementById("spinner").style.display = "none";
 }
 /**
  * 'submit' event handler - reads the image bytes and sends it to the Cloud
