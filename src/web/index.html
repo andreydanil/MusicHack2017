@@ -30,6 +30,7 @@
   	<script type="text/javascript" src="main.js"></script>
   	<script type="text/javascript" src="js/ntc.js"></script>
   	<script type="text/javascript" src="js/playSound.js"></script>
+  	<script src="https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js"></script>
 
 </head>
 <body>
@@ -93,7 +94,7 @@
 										<option value="SAFE_SEARCH_DETECTION">SAFE_SEARCH_DETECTION</option>
 										<option value="IMAGE_PROPERTIES">IMAGE_PROPERTIES</option>
 										</select><br /> -->
-										<input type="file" onchange="readURL(this);" name="fileField"><br /><br />
+										<input id="fileName" type="file" onchange="readURL(this);" name="fileField"><br /><br />
 										<img id="uploadImg" src="#" alt="your image" /><br /><br />
 										<input class="btn btn-primary btn-lg mt-2" type="submit" name="submit" value="Submit">
 										</form>
@@ -124,12 +125,13 @@
 	        </button>
 	      </div>
 	      <div class="modal-body" id="body">
+	      	<h3 class="card-title">Step 2</h3>
 	        <i id="spinner" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
 	      </div>
+	      <button id="sound" class="btn btn-primary btn-lg mt-2" type="button" onclick="playSound()">Play</button>
 
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
 	      </div>
 	    </div>
 	  </div>

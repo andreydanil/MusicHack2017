@@ -26,6 +26,16 @@ function clearResults() {
   document.getElementById("results").style.display = "none";
 }
 
+
+function playSound() {
+  var img = document.getElementById("fileName").value;
+  var last = img.substring(img.lastIndexOf("\\") + 1, img.length);
+  var i;
+
+  var audio = new Audio('files/' + last[0] + ".mp3");
+  
+  audio.play();
+}
 function readURL(input) {
 
         if (input.files && input.files[0]) {
@@ -44,6 +54,7 @@ function readURL(input) {
 
 function imageToSound() {
   $('#myModal').modal('toggle');
+  document.getElementById("sound").style.display = "none";
   document.getElementById("title").innerHTML = "Fetching Sound";
 
   
@@ -148,4 +159,5 @@ function displayColorJSON (data) {
   evt.results = contents;
   document.dispatchEvent(evt);
   document.getElementById("spinner").style.display = "none";
+  document.getElementById("sound").style.display = "";
 }
