@@ -14,13 +14,20 @@
 'use strict';
 
 var response = "";
+var colors = "";
+
 var CV_URL = 'https://vision.googleapis.com/v1/images:annotate?key=' + window.apiKey;
 
 $(function () {
   $('#fileform').on('submit', uploadFiles);
 });
 
+function clearResults() {
+  document.getElementById("results").style.display = "none";
+}
+
 function readURL(input) {
+
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
@@ -73,6 +80,7 @@ function sendFileToCloudVision (content) {
   //var type = $('#fileform [name=type]').val();
 
   var type = "IMAGE_PROPERTIES";
+  var type1 = "LABEL_DETECTION";
 
   // Strip out the file prefix when you convert to json.
   var request = {
@@ -87,6 +95,18 @@ function sendFileToCloudVision (content) {
     }]
   };
 
+  var request1 = {
+    requests: [{
+      image: {
+        content: content
+      },
+      features: [{
+        type: type1,
+        maxResults: 200
+      }]
+    }]
+  };
+
   $('#results').text('Loading...');
   $.post({
     url: CV_URL,
@@ -94,8 +114,18 @@ function sendFileToCloudVision (content) {
     contentType: 'application/json'
   }).fail(function (jqXHR, textStatus, errorThrown) {
     $('#results').text('ERRORS: ' + textStatus + ' ' + errorThrown);
-    response = done(displayJSON);
+    response = data;
   }).done(displayJSON);
+
+  $('#resultsColor').text('Loading...');
+  $.post({
+    url: CV_URL,
+    data: JSON.stringify(request1),
+    contentType: 'application/json'
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    $('#results').text('ERRORS: ' + textStatus + ' ' + errorThrown);
+    colors = data;
+  }).done(displayColorJSON);
 }
 
 /**
@@ -104,8 +134,19 @@ function sendFileToCloudVision (content) {
 function displayJSON (data) {
   var contents = JSON.stringify(data, null, 4);
   $('#results').text(contents);
+  $('#resultsColor').text(contents);
   var evt = new Event('results-displayed');
-  response = done(displayJSON);
+  response = data;
+  evt.results = contents;
+  document.dispatchEvent(evt);
+}
+
+function displayColorJSON (data) {
+  var contents = JSON.stringify(data, null, 4);
+  $('#results').text(contents);
+  $('#resultsColor').text(contents);
+  var evt = new Event('results-displayed');
+  colors = data;
   evt.results = contents;
   document.dispatchEvent(evt);
 }

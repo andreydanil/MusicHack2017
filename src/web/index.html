@@ -28,6 +28,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   	<script type="text/javascript" src="key.js"></script>
   	<script type="text/javascript" src="main.js"></script>
+  	<script type="text/javascript" src="js/ntc.js"></script>
+  	<script type="text/javascript" src="js/playSound.js"></script>
+
 </head>
 <body>
 	<div class="container-fluid" id="wrapper">
@@ -95,7 +98,7 @@
 										<input class="btn btn-primary btn-lg mt-2" type="submit" name="submit" value="Submit">
 										</form>
 
-								 		 <code style="white-space:pre" id="results"></code>
+								 		 <code style="white-space:pre" id="results" onchange="clearReuslts()"></code>
 										
 									</div>
 								</div>
@@ -122,6 +125,7 @@
 	      <div class="modal-body" id="body">
 	        <i id="spinner" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
 	      </div>
+
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	        <button type="button" class="btn btn-primary">Save changes</button>
