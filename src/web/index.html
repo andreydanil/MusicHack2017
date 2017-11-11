@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<meta name="description" content="">
+	
+	<meta name="author" content="">
+	
+	<link rel="icon" href="images/favicon.ico">
+	
+	<title>Technicolor</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  	<script type="text/javascript" src="key.js"></script>
+  	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<div class="container-fluid" id="wrapper">
+		<div class="row">
+			<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2 bg-faded sidebar-style-1">
+				<h1 class="site-title"><a href="index.html"><em class="fa fa-rocket"></em> Technicolor App</a></h1>
+				
+				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
+				
+				<ul class="nav nav-pills flex-column sidebar-nav">
+					<li class="nav-item"><a class="nav-link active" href="index.html"><em class="fa fa-home"></em> Home <span class="sr-only">(current)</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="about.html"><em class="fa fa-hand-o-up"></em> About</a></li>
+				</ul>
+				
+				<a href="#" class="logout-button"><em class="fa fa-power-off"></em> Signout</a></nav>
+			
+			<main class="col-xs-12 col-sm-8 offset-sm-4 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2 pt-3 pl-4">
+				<header class="page-header row justify-center">
+					<div class="col-md-6 col-lg-8" >
+						<h1 class="float-left text-center text-md-left">Make Music With Images</h1>
+					</div>
+					
+					<div class="dropdown user-dropdown col-md-6 col-lg-4 text-center text-md-right"><a class="btn btn-stripped dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<!-- <img src="images/profile-pic.jpg" alt="profile photo" class="circle float-left profile-photo" width="50" height="auto"> -->
+						
+						<div class="username mt-1">
+							<h4 class="mb-1">Guest</h4>
+							
+							<!-- <h6 class="text-muted">Super Admin</h6> -->
+						</div>
+						</a>
+						
+						<div class="dropdown-menu dropdown-menu-right" style="margin-right: 1.5rem;" aria-labelledby="dropdownMenuLink"><a class="dropdown-item" href="#"><em class="fa fa-user-circle mr-1"></em> View Profile</a>
+						     <a class="dropdown-item" href="#"><em class="fa fa-sliders mr-1"></em> Preferences</a>
+						     <a class="dropdown-item" href="#"><em class="fa fa-power-off mr-1"></em> Logout</a></div>
+					</div>
+					
+					<div class="clear"></div>
+				</header>
+				
+				<section class="row">
+					<div class="col-sm-12">
+						<section class="row">
+							<div class="col-sm-12 col-md-12">
+								<div class="card mb-4">
+									<div class="card-block">
+										<h3 class="card-title">Step 1</h3>
+										
+										<!-- <h6 class="card-subtitle mb-2 text-muted">Post a photo so we can analyze the image</h6> -->
+										<h6 class="card-subtitle mb-2 text-muted">Post a photo so we can analyze the image</h6>
+
+										<form id="fileform" onsubmit="imageToSound();">
+										<!-- <select name="type">
+										<option value="LANDMARK_DETECTION">LANDMARK_DETECTION</option>
+										<option value="TYPE_UNSPECIFIED">TYPE_UNSPECIFIED</option>
+										<option value="FACE_DETECTION">FACE_DETECTION</option>
+										<option value="LOGO_DETECTION">LOGO_DETECTION</option>
+										<option value="LABEL_DETECTION">LABEL_DETECTION</option>
+										<option value="TEXT_DETECTION">TEXT_DETECTION</option>
+										<option value="SAFE_SEARCH_DETECTION">SAFE_SEARCH_DETECTION</option>
+										<option value="IMAGE_PROPERTIES">IMAGE_PROPERTIES</option>
+										</select><br /> -->
+										<input type="file" onchange="readURL(this);" name="fileField"><br /><br />
+										<img id="blah" src="#" alt="your image" /><br /><br />
+										<input class="btn btn-primary btn-lg mt-2" type="submit" name="submit" value="Submit">
+										</form>
+
+								 		 <code style="white-space:pre" id="results"></code>
+										
+									</div>
+								</div>
+								
+						
+							</div>
+						</section>
+					</div>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        ...
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    
+    <script src="js/chart.min.js"></script>
+    <script src="js/chart-data.js"></script>
+    <script src="js/easypiechart.js"></script>
+    <script src="js/easypiechart-data.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+	    window.onload = function () {
+	var chart1 = document.getElementById("line-chart").getContext("2d");
+	window.myLine = new Chart(chart1).Line(lineChartData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.2)",
+	scaleGridLineColor: "rgba(0,0,0,.05)",
+	scaleFontColor: "#c5c7cc"
+	});
+};
+	</script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    
+	  </body>
+</html>
