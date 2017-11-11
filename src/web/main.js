@@ -13,6 +13,7 @@
 
 'use strict';
 
+var response = "";
 var CV_URL = 'https://vision.googleapis.com/v1/images:annotate?key=' + window.apiKey;
 
 $(function () {
@@ -93,6 +94,7 @@ function sendFileToCloudVision (content) {
     contentType: 'application/json'
   }).fail(function (jqXHR, textStatus, errorThrown) {
     $('#results').text('ERRORS: ' + textStatus + ' ' + errorThrown);
+    response = done(displayJSON);
   }).done(displayJSON);
 }
 
@@ -103,6 +105,7 @@ function displayJSON (data) {
   var contents = JSON.stringify(data, null, 4);
   $('#results').text(contents);
   var evt = new Event('results-displayed');
+  response = done(displayJSON);
   evt.results = contents;
   document.dispatchEvent(evt);
 }
